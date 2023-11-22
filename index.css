@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    background-color: bisque;
+    font-family: Smythe;
+} 
+
+.container{
+    width: 600px;
+    min-height: 860px;
+    margin: 10px auto;
+    background-color: white;
+}
+
+header{
+    background: #777 url("images/header-bg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    color:white;
+    height: 170px;
+}
+header h1{
+    padding: 40px 0 0 40px;
+    margin: 0;
+    font-size: 39px;
+    font-weight: 400;
+    line-height: 24px; 
+}
+header h2{
+    padding: 10px 0 0 40px;
+    font-size: 22.422px;
+    font-weight: 400;
+    line-height: 13px;
+}
+
+.menu-container{
+    background-color: #eee;
+}
+.menu{
+    list-style-type: none;
+    margin: 20px;
+    padding: 0;
+}
+.menu-item{
+    display: flex;
+    background-color: rgb(177, 255, 255);
+    margin: 10px;
+    padding: 20px;
+    height: 100px;
+    border-bottom: solid 1px #aaa;
+}
+.menu-icon{
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 78.72px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 98.4px; /* 125% */
+    letter-spacing: -1.574px;
+}
+.menu-info{
+    display: flex;
+    flex-direction: column;
+}
+.menu-info h4{
+    margin: 0;
+}
+.menu-info p{
+    margin: 0;
+}
+.menu-info h5{
+    margin: 0;
+}
+.menu-add{
+    background-color: #eee;
+    margin: 20px 20px 10px auto;
+    padding: 12px;
+    border: solid 1px #3b2525;
+    border-radius: 50%;
+    height: 22px;
+    width: 20px;
+    color: #3C3C3C;
+    text-align: center;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 200;
+    line-height: 24px;
+}
