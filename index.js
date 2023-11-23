@@ -1,15 +1,14 @@
 import { menuArray } from "/data.js"
 
+const summary = document.getElementById('summary');
 let orderList = [];
-orderList = menuArray.map(el => {return {...el}})
-orderList[0].name='fgg'
-
+let todaysOrders = 0;
+//
+//orderList = menuArray.map(el => {return {...el}})
 //let clonedArray = JSON.parse(JSON.stringify(nodesArray))
 
 
 renderMenu(menuArray)
-renderOrder(menuArray)
-renderTotalPrice(menuArray)
 
 
 function renderMenu(dataToRender){
@@ -30,10 +29,9 @@ function renderMenu(dataToRender){
         buttonAdd.classList.add('menu-add')
         buttonAdd.textContent = '+'
         buttonAdd.addEventListener('click',function(){
-            console.log("kliknieto "+element.name)
+            addElementToOrderList(element)
         })
         listItem.append(buttonAdd)
-
         menuList.append(listItem);
     });
 
@@ -41,6 +39,7 @@ function renderMenu(dataToRender){
 
 function renderOrder(orders){
     const summaryList = document.getElementById('summary-list')
+    summaryList.innerHTML = ''
 
     orders.forEach(element => {
         const orderItem = document.createElement('li')
@@ -49,7 +48,11 @@ function renderOrder(orders){
         const removeBtn = document.createElement('button')
         removeBtn.textContent = 'remove'
         removeBtn.addEventListener('click',function(){
-            console.log("tu bede usowac "+element.name)
+            orderList = orderList.filter(function(el){
+                return el.id !== element.id
+            })
+            renderOrder(orderList)
+
         })
         orderItem.append(removeBtn)
         const divPriceElement = document.createElement('div')
@@ -58,15 +61,32 @@ function renderOrder(orders){
         orderItem.append(divPriceElement)
         summaryList.append(orderItem)
     })
-
+    renderTotalPrice(orders)
 }
 
 function renderTotalPrice(orders){
     let sum = 0;
     orders.forEach(order => sum+= order.price)
     document.getElementById('summary-total-price').textContent = '$ '+sum
+    if(sum === 0){
+        summary.style.display = 'none'
+    }
+
 }
 
-console.log(orderList)
+function addElementToOrderList(order){
+    let elementToAdd = {
+        name: order.name,
+        id: todaysOrders,
+        price: order.price
+    }
+    orderList.push(elementToAdd)
+    todaysOrders++
+    renderOrder(orderList)
+    summary.style.display = 'block'
+}
+
+
+console.log()
 console.log()
 

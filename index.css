@@ -12,7 +12,7 @@ body {
 }
 
 header{
-    background: #777 url("images/header-bg");
+    background: #eee url("images/header-bg");
     background-size: contain;
     background-repeat: no-repeat;
     color:white;
@@ -32,9 +32,6 @@ header h2{
     line-height: 13px;
 }
 
-.menu-container{
-    background-color: #eee;
-}
 .menu-list{
     list-style-type: none;
     margin: 20px;
@@ -42,7 +39,6 @@ header h2{
 }
 .menu-item{
     display: flex;
-    background-color: rgb(177, 255, 255);
     margin: 10px;
     padding: 20px;
     height: 100px;
@@ -88,7 +84,9 @@ header h2{
 }
 
 .summary{
-    background-color: aquamarine;
+    background-color: rgb(199, 255, 236);
+    margin: 0 25px;
+    display:none;
 }
 
 .summary h3{
@@ -106,7 +104,6 @@ header h2{
     border-bottom: 2px solid black;
 }
 .summary-item{
-    background-color: #eee;
     margin: 10px;
     padding: 10px;
     display: flex;
@@ -121,11 +118,11 @@ header h2{
 }
 .summary-item button{
     border:none;
-    background-color: white;
+    background-color: rgb(213, 255, 241);
     border-radius: 4px;
     margin-left: 10px;
     padding: 5px 10px;
-    font-size: 10px;
+    font-size: 12px;
 }
 .summary-item button:hover{
     color: rgb(92, 92, 92);
@@ -138,7 +135,6 @@ header h2{
 }
 
 .summary-price{
-    background-color: #eee;
     margin: 10px 15px;
     padding: 10px;
     display: flex;
