@@ -35,7 +35,7 @@ header h2{
 .menu-container{
     background-color: #eee;
 }
-.menu{
+.menu-list{
     list-style-type: none;
     margin: 20px;
     padding: 0;
@@ -55,36 +55,36 @@ header h2{
     font-size: 78.72px;
     font-style: normal;
     font-weight: 400;
-    line-height: 98.4px; /* 125% */
-    letter-spacing: -1.574px;
 }
 .menu-info{
     display: flex;
     flex-direction: column;
 }
 .menu-info h4{
-    margin: 0;
+    margin: 4px;
+    font-size: 24px;
 }
 .menu-info p{
-    margin: 0;
+    margin: 4px;
 }
 .menu-info h5{
-    margin: 0;
+    margin: 4px;
+    font-size: 20px;
 }
+
 .menu-add{
-    background-color: #eee;
+    background-color: #fff;
     margin: 20px 20px 10px auto;
-    padding: 12px;
-    border: solid 1px #3b2525;
+    border: solid 1px #aaa;
+    width:40px;
+    height: 40px;
     border-radius: 50%;
-    height: 22px;
-    width: 20px;
-    color: #3C3C3C;
-    text-align: center;
     font-family: Inter;
     font-size: 32px;
-    font-weight: 200;
-    line-height: 24px;
+
+}
+.menu-add:hover{
+    background-color: #eee;
 }
 
 .summary{
