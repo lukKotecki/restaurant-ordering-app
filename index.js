@@ -1,15 +1,20 @@
 import { menuArray } from "/data.js"
 
 const summary = document.getElementById('summary');
+const formContainer = document.getElementById('form-container');
+const form = document.getElementById('form')
+const completeOrderButton = document.getElementById('complete-order-button')
 let orderList = [];
 let todaysOrders = 0;
 //
 //orderList = menuArray.map(el => {return {...el}})
 //let clonedArray = JSON.parse(JSON.stringify(nodesArray))
 
-
 renderMenu(menuArray)
 
+completeOrderButton.addEventListener('click',function(){
+    formContainer.style.display = 'inline'
+})
 
 function renderMenu(dataToRender){
     const menuList = document.getElementById('menu-list');
@@ -84,6 +89,36 @@ function addElementToOrderList(order){
     todaysOrders++
     renderOrder(orderList)
     summary.style.display = 'block'
+}
+
+form.addEventListener("submit",function(e){
+    e.preventDefault()
+    formContainer.style.display = 'none'
+    orderList = [];
+    renderOrder(orderList)
+    const formData = new FormData(form) 
+    showThanksMessage(formData.get('name'))
+})
+
+function showThanksMessage(name){
+    console.log(name)
+
+    summary.innerHTML = `<h3>Thanks, ${name}! Your order is on its way!`
+    
+    summary.style.display = 'block'
+}
+
+
+function renderSummary(){
+    summary.innerHTML = ` <h3>Your order</h3>
+    <ul class="summary-list" id="summary-list">
+    </ul>
+    <div class="summary-price">
+        <h6>Total price</h6>
+        <div class="summary-total-price" id="summary-total-price">$0</div>
+    </div>
+    <button class="complete-order-button" id="complete-order-button">Complete order</button>
+`
 }
 
 

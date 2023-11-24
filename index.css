@@ -9,6 +9,7 @@ body {
     min-height: 860px;
     margin: 10px auto;
     background-color: white;
+    position: relative;
 }
 
 header{
@@ -172,4 +173,47 @@ header h2{
 
 .complete-order-button:hover{
     background-color: #16cd90;
+}
+
+.form-container{
+    width:500px;
+    height: 500px;
+    background-color: #ffffff99;
+
+    /* position: absolute;
+    left: 40px;
+    right:auto;
+    bottom: 40px; */
+
+    position:fixed;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin: auto;
+    display:none;
+}
+
+.form-container h3 {
+    text-align: center;
+    font-size: 30px;
+}
+.form-container input, .form-container button {
+    display: block;
+     margin:20px auto;
+    font-size: 20px;
+    padding: 15px 20px;
+    width:90%;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.form-container button{
+    background-color: #16cd90;
+    color: #fff;
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: none;
+}
+.form-container button:hover{
+    background-color: #16DB99;
 }
