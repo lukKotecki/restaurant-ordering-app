@@ -4,13 +4,20 @@ const summary = document.getElementById('summary');
 const formContainer = document.getElementById('form-container');
 const form = document.getElementById('form')
 const completeOrderButton = document.getElementById('complete-order-button')
+const rateUsBtn = document.getElementById('rate-us-btn')
+const ratingStars = [...document.getElementsByClassName('fa-regular')]
+const starsContainer = document.getElementById('stars-container')
+
+const container = document.getElementById('container')
 let orderList = [];
 let todaysOrders = 0;
+let rate = 0;
 //
 //orderList = menuArray.map(el => {return {...el}})
 //let clonedArray = JSON.parse(JSON.stringify(nodesArray))
 
 renderMenu(menuArray)
+generateRatings(ratingStars)
 
 completeOrderButton.addEventListener('click',function(){
     formContainer.style.display = 'inline'
@@ -43,10 +50,23 @@ function renderMenu(dataToRender){
 }
 
 function renderOrder(orders){
+
+    let discount=0;
+    let tookDrink = false;
+    let tookFood = false;
+    document.getElementById('thanks-message').style.display = 'none'
+    starsContainer.style.display = 'none'
     const summaryList = document.getElementById('summary-list')
     summaryList.innerHTML = ''
 
     orders.forEach(element => {
+        if(element.name === "Pizza" || element.name === "Hamburger"){
+            tookFood = true;
+        }
+        if(element.name === "Beer"){
+            tookDrink = true;
+        }
+
         const orderItem = document.createElement('li')
         orderItem.classList.add('summary-item')
         orderItem.innerHTML = `<h5>${element.name}</h5>`
@@ -66,12 +86,17 @@ function renderOrder(orders){
         orderItem.append(divPriceElement)
         summaryList.append(orderItem)
     })
-    renderTotalPrice(orders)
+    if (tookDrink && tookFood){
+        discount = 0.10
+    }
+    renderTotalPrice(orders,discount)
 }
 
-function renderTotalPrice(orders){
+function renderTotalPrice(orders, discount = 0){
     let sum = 0;
     orders.forEach(order => sum+= order.price)
+    sum *= (1-discount)
+    sum = Math.round((sum + Number.EPSILON) * 100)/100
     document.getElementById('summary-total-price').textContent = '$ '+sum
     if(sum === 0){
         summary.style.display = 'none'
@@ -100,28 +125,48 @@ form.addEventListener("submit",function(e){
     showThanksMessage(formData.get('name'))
 })
 
-function showThanksMessage(name){
-    console.log(name)
-
-    summary.innerHTML = `<h3>Thanks, ${name}! Your order is on its way!`
-    
-    summary.style.display = 'block'
+function showThanksMessage(name="You"){
+    const thanksMessage = document.getElementById('thanks-message')
+    let thanks =`Thanks, ${name}! Your order is on its way!`
+    thanksMessage.textContent = thanks
+    thanksMessage.style.display = 'block'
+    starsContainer.style.display = 'block'
 }
 
-
-function renderSummary(){
-    summary.innerHTML = ` <h3>Your order</h3>
-    <ul class="summary-list" id="summary-list">
-    </ul>
-    <div class="summary-price">
-        <h6>Total price</h6>
-        <div class="summary-total-price" id="summary-total-price">$0</div>
-    </div>
-    <button class="complete-order-button" id="complete-order-button">Complete order</button>
-`
+function generateRatings(stars){
+    const starClassActive = 'fa-solid fa-star'
+    const starClassInactive = 'fa-regular fa-star'
+    const starLength = stars.length
+    let i
+    stars.map((star =>{
+        star.addEventListener('click', ()=>{
+            i = stars.indexOf(star)
+            rate =0;
+            if (star.className === starClassInactive){
+                for(i; i>=0; i--){
+                    stars[i].className = starClassActive
+                }
+            } else {
+                for(++i;i<starLength; i++){
+                    stars[i].className = starClassInactive
+                }
+            }
+            stars.forEach( star =>{
+                if(star.className === starClassActive){
+                    rate++;
+                }
+            })
+        })
+    })) 
 }
 
+rateUsBtn.addEventListener('click',()=>{
+    starsContainer.style.color = 'black'
+    starsContainer.innerText = `Rate: ${rate} 
+    Tank You`
+})
 
-console.log()
-console.log()
+
+
+
 

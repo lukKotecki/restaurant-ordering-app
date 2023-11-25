@@ -1,12 +1,15 @@
 <!DOCTYPE html>
     <head>
+        <title>Restaurant ordering app</title>
         <link rel="stylesheet" href="index.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
-        <div class="container">
+        <div class="container" id="container">
             <header>
                 <h1>Jimmy's Diner</h1>
                 <h2> The best burgers and pizzas in town.</h2>
@@ -16,6 +19,18 @@
                 <ul class="menu-list" id="menu-list">
                 </ul>
             </main>
+
+            <div class="thanks-message" id="thanks-message">
+            </div>
+
+            <div class="stars-container" id="stars-container">
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <button id="rate-us-btn">Rate us</button>
+            </div>
 
             <div class="summary" id="summary">
                 <h3>Your order</h3>

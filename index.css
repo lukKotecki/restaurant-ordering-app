@@ -2,10 +2,11 @@ body {
     margin: 0;
     background-color: bisque;
     font-family: Smythe;
+    user-select: none;
 } 
 
 .container{
-    width: 600px;
+    width: 100%;
     min-height: 860px;
     margin: 10px auto;
     background-color: white;
@@ -14,20 +15,19 @@ body {
 
 header{
     background: #eee url("images/header-bg");
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     color:white;
-    height: 170px;
 }
 header h1{
-    padding: 40px 0 0 40px;
+    padding: 1em 0 0 1em;
     margin: 0;
-    font-size: 39px;
+    font-size: 2em;
     font-weight: 400;
     line-height: 24px; 
 }
 header h2{
-    padding: 10px 0 0 40px;
+    padding: 10px 0 20px 40px;
     font-size: 22.422px;
     font-weight: 400;
     line-height: 13px;
@@ -157,11 +157,11 @@ header h2{
 
 
 
-.complete-order-button{
+.complete-order-button , .stars-container button{
     border: none;
     width: 95%;
-    padding: 20px;
-    margin: auto;
+    padding: 12px;
+    margin: 10px auto;
     display: block;
     border-radius: 3px;
     background: #16DB99;
@@ -171,13 +171,13 @@ header h2{
     font-weight: 700;
 }
 
-.complete-order-button:hover{
+.complete-order-button:hover, .stars-container button:hover{
     background-color: #16cd90;
 }
 
 .form-container{
-    width:500px;
-    height: 500px;
+    width:80%;
+    height: 80%;
     background-color: #ffffff99;
 
     /* position: absolute;
@@ -217,3 +217,29 @@ header h2{
 .form-container button:hover{
     background-color: #16DB99;
 }
+
+.thanks-message{
+    background-color: rgb(199, 255, 236);
+    text-align: center;
+    font-family: Smythe;
+    font-size: 28px;
+    font-weight: 400;
+    padding: 10px;
+    margin: 20px;
+    display:none;
+}
+
+.stars-container{
+    background-color: rgb(199, 255, 236);
+    text-align: center;
+    font-family: Smythe;
+    font-size: 28px;
+    font-weight: 400;
+    padding: 10px;
+    margin: 20px;
+    color:#fcff30;
+    display: none;
+}
+
+
+
